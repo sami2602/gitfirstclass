@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<collection>
+    <book>
+        <title>Gun yard</title>
+        <author>John Wick</author>
+        <year>2023</year>
+    </book>
+    <book>
+        <title>Agent Mac</title>
+        <author>Tom Cruise</author>
+        <year>2022</year>
+    </book>
+    <book>
+        <title>suspect</title>
+        <author>james Bond</author>
+        <year>2021</year>
+    </book>
+</collection>
+
+code json
+<!-- {
+	"collection": {
+		"book": [
+			{
+				"title": "Gun yard",
+				"author": "John Wick",
+				"year": "2023"
+			},
+			{
+				"title": "Agent Mac",
+				"author": "Tom Cruise",
+				"year": "2022"
+			},
+			{
+				"title": "suspect",
+				"author": "james Bond",
+				"year": "2021"
+			}
+		]
+	}
+} -->
