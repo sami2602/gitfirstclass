@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-
+<xsl:stylesheet type="text/xls" href="style.xsl">
 <collection>
     <book>
         <title>Gun yard</title>
@@ -18,25 +18,26 @@
     </book>
 </collection>
 
-code json
-<!-- {
-	"collection": {
-		"book": [
-			{
-				"title": "Gun yard",
-				"author": "John Wick",
-				"year": "2023"
-			},
-			{
-				"title": "Agent Mac",
-				"author": "Tom Cruise",
-				"year": "2022"
-			},
-			{
-				"title": "suspect",
-				"author": "james Bond",
-				"year": "2021"
-			}
-		]
-	}
-} -->
+
+
+
+
+<?xml version="1.0"?>
+<books>
+    <book>
+        <title>Gun Yard</title>
+        <author>John Wick</author>
+        <price>19.99</price>
+    </book>
+    <book>
+        <title>Agent Mac</title>
+        <author>Tom Cruise</author>
+        <price>25.50</price>
+    </book>
+    <book>
+        <title>Suspect</title>
+        <author>James Bond</author>
+        <price>22.75</price>
+    </book>
+</books>
+
