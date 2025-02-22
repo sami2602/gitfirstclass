@@ -1,0 +1,10 @@
+manufacturer{border: thick dashed magenta}
+model{border:thick solid olive}
+color{border:thick groove aqua}
+price{ border:thick inset gray}
+manufacturer{padding: 2}
+model{ padding: 2 5}
+color{padding: 2 5 8}
+price{padding: 2 5 8 10; position: absolute; top: 40;left: 20;}
+location{position: relative; left: 60px;}
+

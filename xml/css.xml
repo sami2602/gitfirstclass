@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="padding.css"?>
+<cars>
+<vehicle>
+<manufacturer>BMW</manufacturer>
+<model>M3</model>
+<color>Metallic Silver</color>
+<price>40000$</price>
+<location>Liverpool</location>
+
+</vehicle>
+</cars>
+
+
