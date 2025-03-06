@@ -11,7 +11,7 @@
     <script>
         
         let fruits=["Apple","Banana","Mango","Orange"];
-        document.write(fruits[2]);
+        document.write(fruits[2] ,"<br>");
 
         for (const fruit of fruits) {
             document.write (fruit + "<br>");
@@ -20,6 +20,21 @@
         fruits.forEach(fruit => {
             document.write(fruit + "<br>");
         });
+
+        
+         let numbers = [3,2,1,5,4,7,9]; 
+         numbers.sort();
+         numbers.reverse();
+         document.write(numbers + "<br>");
+
+         let text="JavaScript is Fun";
+         let words=text.split(" ");
+         document.write(words + "<br>");
+
+         let chars= Array.from("Hello"); 
+        document.write(chars + "<br>");
+
+        // with first term code Array.html File 
 
     </script>
 </body>
