@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<!-- fucntion is a block of code that performs a specific task.
+function is a reusable code.
+function is a block of code that can be defined once and executed any number of times. 
+function is a block of code that can be called by name.
+function can accept data that is known as parameters. 
+function can return data as a result.
+function can be defined using function keyword. 
+function can be defined using arrow function. 
+function can be defined using function constructor.
+function can be defined using function expression.
+function can be defined using IIFE (Immediately Invoked Function Expression). 
+function can be defined using generator function.
+function can be defined using async function.
+function can be defined using async arrow function. -->
+
+<script>
+    // function declaration
+    function greet(name) {
+        return `Hello,${name}`;
+        // return "hello," + name;
+    }
+    console.log(greet("Sami"));
+
+    //arrow function 
+    const a=10;
+    const b=20;
+
+    const sum = (a,b)=> a + b;
+    console.log(a, "+" , b , "=", sum(a , b));
+
+    // callback function
+    function fetchdata(callback){
+        setTimeout(() => {
+            const data= "Data Fetched";
+            callback(data);
+    },3000
+);
+}
+fetchdata(data => console.log(data));
+
+
+</script>
+
+</body>
+</html>
