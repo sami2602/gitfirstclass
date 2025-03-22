@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="usd" placeholder="Enter Amount In Dollar">
+    <button type="submit" onclick="currencychange()">submit</button>
+    <p id="currency"></p>
+
+    <script>
+        
+        function currencychange(){
+            var usd = document.getElementById("usd").value;
+            var change=usd*279.93;
+            document.getElementById("currency").innerHTML = "The amount in Pkr is " + change;
+        }
+    </script>
+</body>
+</html>
