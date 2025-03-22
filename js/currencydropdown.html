@@ -13,19 +13,25 @@
     <option value="pound">£</option>
   </select>
 
+  <p id="converted"></p>
     <button type="submit" onclick="currencychange()">submit</button>
-    <p id="converted"></p>
+    
 
     <script>
         function currencychange(){
-        var usd = document.getElementById("usd").value;
-        
+        var amount = document.getElementById('usd').value;
+        var currency=document.getElementById('currency').value;
+        var change=0;
             if (currency=='dollar') {
-                change=amount*279.05;
+                change = amount*279.05;
         }
-        else if{currency==
-
+        else if(currency=='euro'){
+          change = amount*330.21;
         }
+        else if(currency=='pound'){
+          change=amount*350;
+        }
+        document.getElementById('converted').innerHTML=change;
     }
     </script>
 </body>
