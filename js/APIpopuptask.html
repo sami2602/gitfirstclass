@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search</title>
+</head>
+<body>
+
+    <input type="text" id="movie" placeholder="Enter movie title">
+    <button onclick="getMovie()">Search</button>
+
+    <div id="movieModal" 
+        style="display:none; position:fixed; z-index:999; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.7);">
+        
+        <div 
+            style="background-color:#fff; margin:10% auto; padding:20px; border-radius:8px; width:80%; max-width:500px; position:relative;">
+            
+            <span onclick="closeModal()" 
+                  style="color:#aaa; position:absolute; top:10px; right:15px; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+            
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        async function getMovie() {
+            const moviename = document.getElementById('movie').value.trim();
+            const apikey = 'e6fabd51';
+
+            if (!moviename) {
+                alert("Please enter a movie name.");
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://www.omdbapi.com/?t=${encodeURIComponent(moviename)}&apikey=${apikey}`);
+                const data = await response.json();
+
+                const modalBody = document.getElementById('modal-body');
+
+                if (data.Response === 'True') {
+                    modalBody.innerHTML = `
+                        <h2>${data.Title} (${data.Year})</h2>
+                        <p><strong>Genre:</strong> ${data.Genre}</p>
+                        <p><strong>Plot:</strong> ${data.Plot}</p>
+                        <p><strong>IMDB Rating:</strong> ${data.imdbRating}</p>
+                        <img src="${data.Poster}" alt="${data.Title} Poster" style="width:200px">
+                    `;
+                    openModal();
+                } else {
+                    modalBody.innerHTML = `<p style="color:red;">Movie not found!</p>`;
+                    openModal();
+                }
+            } catch (error) {
+                alert("Something went wrong. Please try again later.");
+                console.error(error);
+            }
+        }
+
+        function openModal() {
+            document.getElementById('movieModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('movieModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('movieModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>

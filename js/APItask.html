@@ -2,30 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Movie Search</title>
 </head>
 <body>
 
-    <input type="text" name="" id="movie">
-    <button type="submit" onclick="getmovie()">Search</button>
+    <h1>Movie Search</h1>
+
+    <input type="text" id="movie" placeholder="Enter movie title">
+    <button onclick="getmovie()">Search</button>
+
+    <div id="result"></div>
 
     <script>
         async function getmovie() {
-            let moviename =document.getElementById ('movie').value;
+            const moviename = document.getElementById('movie').value;
+            const resultDiv = document.getElementById('result');
+
+            if (!moviename) {
+                resultDiv.innerHTML = "Please enter a movie title.";
+                return;
+            }
+
             const apikey = 'e6fabd51';
-            const response = await fetch(`https://www.omdbapi.com/?t=${moviename}&apikey=${apikey}`);
-            const data= await response.json();  
-            if (data.Response==='True') {
-                console.log('movie :',data);
-            } else {
-                console.log('Error:');
+
+            try {
+                const response = await fetch(`https://www.omdbapi.com/?t=${moviename}&apikey=${apikey}`);
+                const data = await response.json();
+
+                if (data.Response === "True") {
+                    resultDiv.innerHTML = `
+                        <h2>${data.Title} (${data.Year})</h2>
+                        <p><img src="${data.Poster}" alt="Movie Poster"></p>
+                        <p><strong>Genre:</strong> ${data.Genre}</p>
+                        <p><strong>Director:</strong> ${data.Director}</p>
+                        <p><strong>Actors:</strong> ${data.Actors}</p>
+                        <p><strong>Plot:</strong> ${data.Plot}</p>
+                        <p><strong>IMDB Rating:</strong> ${data.imdbRating}</p>
+                    `;
+                } else {
+                    resultDiv.innerHTML = "Movie not found.";
+                }
+            } catch (error) {
+                resultDiv.innerHTML = "Error fetching data.";
+                console.log(error);
             }
         }
+    </script>
 
-    </script>   
-
-</body>
-    
 </body>
 </html>
