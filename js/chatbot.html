@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple AI Chatbot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    #chat {
+      margin-top: 20px;
+      white-space: pre-wrap;
+      background: #f5f5f5;
+      padding: 10px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Ask the AI Anything</h2>
+  <input id="userInput" type="text" placeholder="Type your question..." style="width: 80%;" />
+  <button onclick="ask()">Ask</button>
+  <div id="chat"></div>
+
+  <script src="https://js.puter.com/v2/"></script>
+    <script>
+    (async () => {
+        // DeepSeek Chat
+        const chat_resp = await puter.ai.chat(
+            'Solve this puzzle: If you have 9 coins and one is counterfeit (lighter), how can you identify it with just 2 weighings on a balance scale?',
+            {model: 'deepseek-chat', stream: true}
+        );
+        document.write('<h2>DeepSeek Chat Solution:</h2>');
+        for await (const part of chat_resp) {
+            if (part?.text) {
+                document.write(part.text.replaceAll('\n', '<br>'));
+            }
+        }
+
+        // DeepSeek Reasoner
+        const reasoner_resp = await puter.ai.chat(
+            'Solve this puzzle: If you have 9 coins and one is counterfeit (lighter), how can you identify it with just 2 weighings on a balance scale?',
+            {model: 'deepseek-reasoner', stream: true}
+        );
+        document.write('<h2>DeepSeek Reasoner Solution:</h2>');
+        for await (const part of reasoner_resp) {
+            if (part?.text) {
+                document.write(part.text.replaceAll('\n', '<br>'));
+            }
+        }
+    })();
+    </script>
+</body>
+</html>
